@@ -73,6 +73,7 @@ body {
     border-radius: 15px;
     box-shadow: var(--box-shadow);
     transition: box-shadow 0.5s;
+    overflow: hidden;
 }
 
 .tile:hover {

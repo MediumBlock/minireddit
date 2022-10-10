@@ -4,8 +4,7 @@ const Context = React.createContext()
 
 function ContextProvider({ children }) {
 
-    const [apiData, setApiData] = useState({})
-    const [test, setTest] = useState("1")
+    const [apiData, setApiData] = useState([])
 
     useEffect(() => {
         fetch('https://www.reddit.com/r/javascript/hot.json')
@@ -16,10 +15,11 @@ function ContextProvider({ children }) {
             });
     }, [])
 
+    console.log(apiData)
+
     return (
         <Context.Provider value={{
-            apiData,
-            test
+            apiData
         }} >
             {children}
         </Context.Provider>

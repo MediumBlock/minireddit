@@ -1,4 +1,4 @@
-const mockData = [
+export const mockData = [
     {
         data: {
             title: 'hello1',
@@ -9,7 +9,7 @@ const mockData = [
     },
     {
         data: {
-            title: 'hello1',
+            title: 'hello2',
             selftext: 'yo whats up2',
             url: "https://i.redd.it/bkmbpeaizss91.jpg",
             author: "jackson2"
@@ -17,7 +17,7 @@ const mockData = [
     },
     {
         data: {
-            title: 'hello1',
+            title: 'hello3',
             selftext: 'yo whats up3',
             url: "https://i.redd.it/bkmbpeaizss91.jpg",
             author: "jackson3"

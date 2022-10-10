@@ -8,7 +8,7 @@ export default function Main() {
 
     const {apiData, test} = useContext(Context)
 
-    console.log(test)
+    console.log(apiData)
 
     function mapArray() {
         // return apiData.map(item => item.data.title)
