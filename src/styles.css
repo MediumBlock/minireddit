@@ -1,0 +1,99 @@
+:root {
+    --background: #f3f3f3;
+    /* background is actually : f3f3f3 717171 */
+    --foreground: #fff;
+    --box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05)!important;
+}
+
+html,
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background);
+}
+
+.header {
+    height: 80px;
+    background-color: var(--foreground);
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+    box-shadow: var(--box-shadow);
+
+}
+
+.header img {
+    height: 40px;
+    margin: 0 10px 0 10px;
+}
+
+.header form {
+    margin: 0 auto;
+}
+
+.header input {
+    width: 400px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+}
+
+.header button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+}
+
+.header button img {
+    height: 20px;
+}
+
+.tilelist {
+    width: 99%;
+}
+
+
+.tile {
+    height: 600px;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.5s;
+    color: red;
+    margin: 0 auto;
+    height: 600px;
+    background-color: var(--foreground);
+    margin: 10px 5px 10px 10px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.5s;
+}
+
+.tile:hover {
+    box-shadow: 0 0 3px #515151;
+}
+
+.sidebar {
+    height: 600px;
+    width: 350px;
+    background-color: var(--foreground);
+    margin: 15px 10px 10px 5px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.5s;
+
+}
+
+.sidebar:hover {
+    box-shadow: 0 0 3px #515151;
+}
+
+.content {
+    display: flex;
+}
