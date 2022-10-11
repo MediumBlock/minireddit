@@ -3,6 +3,7 @@
     /* background is actually : f3f3f3 717171 */
     --foreground: #fff;
     --box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05)!important;
+    --border-radius: 15px;
 }
 
 html,
@@ -57,20 +58,19 @@ body {
 }
 
 .tilelist {
-    width: 99%;
+    width: 70%;
 }
 
 
 .tile {
-    height: 600px;
+    /* height: 600px; */
     box-shadow: var(--box-shadow);
     transition: box-shadow 0.5s;
     color: red;
     margin: 0 auto;
-    height: 600px;
     background-color: var(--foreground);
     margin: 10px 5px 10px 10px;
-    border-radius: 15px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: box-shadow 0.5s;
     overflow: hidden;
@@ -80,14 +80,33 @@ body {
     box-shadow: 0 0 3px #515151;
 }
 
+.tile--divider {
+    display: flex;
+}
+
+.tile--right {
+    margin: 0 25px 0 5px;
+}
+
+.tile img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    
+}
+
+.tile--footer {
+    height: 50px;
+}
+
 .sidebar {
     height: 600px;
-    width: 350px;
+    width: 30%;
     background-color: var(--foreground);
-    margin: 15px 10px 10px 5px;
+    margin: 10px 10px 10px 5px;
     border-radius: 15px;
     box-shadow: var(--box-shadow);
     transition: box-shadow 0.5s;
+    border: 1 px;
 
 }
 
