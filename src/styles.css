@@ -2,7 +2,7 @@
     --background: #f3f3f3;
     /* background is actually : f3f3f3 717171 */
     --foreground: #fff;
-    --box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05)!important;
+    --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
     --border-radius: 15px;
 }
 
@@ -66,7 +66,6 @@ body {
     /* height: 600px; */
     box-shadow: var(--box-shadow);
     transition: box-shadow 0.5s;
-    color: red;
     margin: 0 auto;
     background-color: var(--foreground);
     margin: 10px 5px 10px 10px;
@@ -84,18 +83,65 @@ body {
     display: flex;
 }
 
+.tile--left {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.tile--left p {
+    margin: 0;
+    margin-left: 10px
+}
+
 .tile--right {
-    margin: 0 25px 0 5px;
+    margin: 0 25px 0 0;
 }
 
 .tile img {
     max-width: 100%;
     border-radius: var(--border-radius);
-    
+    cursor: pointer;
+
+}
+
+hr {
+    position: relative;
+    top: 8px;
+    width: 60%;
 }
 
 .tile--footer {
-    height: 50px;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.tile--footer--comments {
+    display: flex;
+}
+
+
+
+.tile--footer--comments img {
+    margin: 15px 5px 10px 0;
+    max-width: 24px;
+    max-height: 24px;
+    border-radius: 0;
+    transform: scaleX(-1);
+
+}
+
+
+
+.tile--left img {
+    max-width: 32px;
+    margin-left: 10px;
+}
+
+.downvote {
+    transform: rotate(180deg)
 }
 
 .sidebar {
@@ -106,7 +152,6 @@ body {
     border-radius: 15px;
     box-shadow: var(--box-shadow);
     transition: box-shadow 0.5s;
-    border: 1 px;
 
 }
 
