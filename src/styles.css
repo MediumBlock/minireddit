@@ -125,7 +125,7 @@ hr {
 
 
 .tile--footer--comments img {
-    margin: 15px 5px 10px 0;
+    margin: 2px 5px 10px 0;
     max-width: 24px;
     max-height: 24px;
     border-radius: 0;
@@ -133,11 +133,46 @@ hr {
 
 }
 
-
-
 .tile--left img {
     max-width: 32px;
     margin-left: 10px;
+}
+
+.comments--element {
+    background-color: var(--background);
+    margin-block-start: 0;
+    margin-block-end: 1em;
+    border-radius: var(--border-radius);
+    min-height: 55px;
+
+}
+
+.comments--element h4 {
+    margin-left: 10px;
+    position: relative;
+    top: 5px;
+}
+
+.comments--element p {
+    margin-left: 10px;
+    position: relative;
+    top: 5px;
+    padding-bottom: 10px;
+}
+
+h4 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+p {
+    margin-block-start: 0.2em;
+    margin-block-end: 0;
+}
+
+.comments--section {
+    margin: 0;
+    
 }
 
 .downvote {

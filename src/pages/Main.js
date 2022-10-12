@@ -6,9 +6,9 @@ import {Context} from "../Context"
 
 export default function Main() {
 
-    const {apiData, test} = useContext(Context)
+    const {apiData} = useContext(Context)
 
-    console.log(apiData)
+    // console.log(apiData)
 
     function mapArray() {
         // return apiData.map(item => item.data.title)

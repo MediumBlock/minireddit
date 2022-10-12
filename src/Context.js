@@ -30,7 +30,7 @@ function ContextProvider({ children }) {
     }, [])
 
     // console.log(apiData)
-    // console.log(commentData)
+    console.log(commentData)
 
     useEffect(() => {
         setMockApiData(mockData)

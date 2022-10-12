@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../Context"
-import { mockData } from "../resources/data";
 import Comments from "./Comments";
 
 export default function Tile({ img, title, id }) {
@@ -11,6 +10,9 @@ export default function Tile({ img, title, id }) {
     })
 
     const [checkComments, setCheckComments] = useState(false)
+    
+    const { mockApiData, mockApiCommentData } = useContext(Context)
+
 
     function toggleVote(vote) {
         if (!isVoted.up && !isVoted.down && vote === "upvote") {
@@ -44,6 +46,8 @@ export default function Tile({ img, title, id }) {
         setCheckComments(state => !state)
     }
 
+
+
     return (
         <div className="tile">
             <div className="tile--divider">
@@ -59,7 +63,7 @@ export default function Tile({ img, title, id }) {
                     />
                 </div>
                 <div className="tile--right">
-                    <p>{title}</p>
+                    <h3>{title}</h3>
                     <img src={img} />
                     <hr />
                     <div className="tile--footer">
@@ -72,7 +76,8 @@ export default function Tile({ img, title, id }) {
                             <p>400</p>
                         </div>
                     </div>
-                    {checkComments ? <Comments /> : "" }
+                    {checkComments ? <Comments id={id} /> : "" }
+                    {/* {checkComments ? {commentsLog} : "" } */}
                 </div>
             </div>
 

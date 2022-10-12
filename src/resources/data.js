@@ -31,20 +31,37 @@ export const mockData = [
 export const mockCommentData = [
     {
         data: {
-            body: 'comment1',
+            body: 'not a bad descriptino of what i was talking about but otherwise it oculd have been abit better',
             link_id: 'y3_123',
+            author: 'john jonhstone'
+        }
+    },
+    {
+        data: {
+            body: 'not a bad descriptino of what i was talking about but otherwise it oculd have been abit better',
+            link_id: 'y3_123',
+            author: 'john jonhstone2'
+        }
+    },
+    {
+        data: {
+            body: 'not a bad descriptino of what i was talking about but otherwise it oculd have been abit better, i just wish however there were more people that i could be talking to',
+            link_id: 'y3_123',
+            author: 'john jonhstone3'
         }
     },
     {
         data: {
             body: 'comment2',
             link_id: 'y3_1234',
+            author: 'author2'
         }
     },
     {
         data: {
             body: 'comment3',
             link_id: 'y3_12345',
+            author: 'author3'
         }
     }
 ]
