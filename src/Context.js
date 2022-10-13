@@ -9,7 +9,7 @@ function ContextProvider({ children }) {
     const [commentData, setCommentData] = useState([])
     const [mockApiData, setMockApiData] = useState([])
     const [mockApiCommentData, setMockApiCommentData] = useState([])
-    const [hasSearchTerm, setHasSeartchTerm] = useState(false)
+    const [hasSearchTerm, setHasSeartchTerm] = useState(true)
 
 
     useEffect(() => {

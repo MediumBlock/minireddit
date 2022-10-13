@@ -6,8 +6,13 @@ export default function Search() {
 
     const { apiData, mockApiData } = useContext(Context)
 
+    const filterElements = mockApiData.filter(item => {
+        return item.data.title.includes('hello1')
+    })
 
-    const tileSearchElements = mockApiData.map(item => (
+    console.log('hello', filterElements)
+
+    const tileSearchElements = filterElements.map(item => (
         <Tile
             key={item.data.id}
             img={item.data.url}
@@ -21,7 +26,6 @@ export default function Search() {
         <>
             <div className="tilelist">
                 {tileSearchElements}
-
             </div>
         </>
 
