@@ -4,13 +4,11 @@ import Tile from './Tile'
 
 export default function Search() {
 
-    const { apiData, mockApiData } = useContext(Context)
+    const { apiData, mockApiData, submitData} = useContext(Context)
 
     const filterElements = mockApiData.filter(item => {
-        return item.data.title.includes('hello1')
+        return item.data.title.includes(submitData)
     })
-
-    console.log('hello', filterElements)
 
     const tileSearchElements = filterElements.map(item => (
         <Tile

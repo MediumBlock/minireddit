@@ -10,6 +10,8 @@ function ContextProvider({ children }) {
     const [mockApiData, setMockApiData] = useState([])
     const [mockApiCommentData, setMockApiCommentData] = useState([])
     const [hasSearchTerm, setHasSeartchTerm] = useState(true)
+    const [searchData, setSearchData] = useState("")
+    const [submitData, setSubmitData] = useState("")
 
 
     useEffect(() => {
@@ -31,7 +33,8 @@ function ContextProvider({ children }) {
     }, [])
 
     // console.log(apiData)
-    console.log(commentData)
+    // console.log(commentData)
+
 
     useEffect(() => {
         setMockApiData(mockData)
@@ -41,16 +44,29 @@ function ContextProvider({ children }) {
         setMockApiCommentData(mockCommentData)
     }, [])
 
+    function handleSearchChange(event) {
+        const { value } = event.target
+        setSearchData(value)
+    }
 
+    function handleSearchSubmit(event) {
+        event.preventDefault()
+        setSubmitData(searchData)
 
+    }
 
+    console.log(submitData)
     return (
         <Context.Provider value={{
             apiData,
             mockApiData,
             mockApiCommentData,
             hasSearchTerm,
-            setHasSeartchTerm
+            setHasSeartchTerm,
+            handleSearchChange,
+            searchData,
+            handleSearchSubmit,
+            submitData
         }} >
             {children}
         </Context.Provider>
