@@ -5,7 +5,10 @@ export const mockData = [
             selftext: 'yo whats up1',
             url: "https://i.redd.it/bkmbpeaizss91.jpg",
             author: "jackson1",
-            id: "123"
+            id: "123",
+            num_comments: 442,
+            ups: 5624,
+            created: 1665621466,
         }
     },
     {
@@ -14,7 +17,10 @@ export const mockData = [
             selftext: 'yo whats up2',
             url: "https://i.redd.it/bkmbpeaizss91.jpg",
             author: "jackson2",
-            id: "1234"
+            id: "1234",
+            num_comments: 973,
+            ups: 424,
+            created: 1665621466
         }
     },
     {
@@ -23,7 +29,10 @@ export const mockData = [
             selftext: 'yo whats up3',
             url: "https://i.redd.it/bkmbpeaizss91.jpg",
             author: "jackson3",
-            id: "12345"
+            id: "12345",
+            num_comments: 13,
+            ups: 1000,
+            created: 1665621466
         }
     }
 ]

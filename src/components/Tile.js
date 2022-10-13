@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../Context"
 import Comments from "./Comments";
 
-export default function Tile({ img, title, id }) {
+export default function Tile({ img, title, id, comments, ups, author, date }) {
 
     const [isVoted, setIsVoted] = useState({
         up: false,
@@ -47,6 +47,14 @@ export default function Tile({ img, title, id }) {
     }
 
 
+    function convertTime() {
+        const unixTimestamp = date
+        const milliseconds = date * 1000
+        const dateObject = new Date(milliseconds)
+        
+        return dateObject.toLocaleString()
+    }
+
 
     return (
         <div className="tile">
@@ -56,7 +64,7 @@ export default function Tile({ img, title, id }) {
                         className="upvote"
                         onClick={() => toggleVote("upvote")}
                     />
-                    <p>500</p>
+                    <p>{ups}</p>
                     <img src={isVoted.down ? require("../resources/uparrowfilled.png") : require("../resources/uparrow.png")}
                         className="downvote"
                         onClick={() => toggleVote("downvote")}
@@ -67,13 +75,13 @@ export default function Tile({ img, title, id }) {
                     <img src={img} />
                     <hr />
                     <div className="tile--footer">
-                        <p>name</p>
-                        <p>time</p>
+                        <p>{author}</p>
+                        <p>{convertTime()}</p>
                         <div className="tile--footer--comments">
                             <img src={require("../resources/comment.png")}
                                 onClick={toggleComments}
                             />
-                            <p>400</p>
+                            <p>{comments}</p>
                         </div>
                     </div>
                     {checkComments ? <Comments id={id} /> : "" }

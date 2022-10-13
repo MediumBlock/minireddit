@@ -32,8 +32,8 @@ function ContextProvider({ children }) {
             });
     }, [])
 
-    // console.log(apiData)
-    // console.log(commentData)
+    console.log('apidata', apiData)
+    console.log('commentdata', commentData)
 
 
     useEffect(() => {
