@@ -77,7 +77,6 @@ export default function Tile({ img, title, id }) {
                         </div>
                     </div>
                     {checkComments ? <Comments id={id} /> : "" }
-                    {/* {checkComments ? {commentsLog} : "" } */}
                 </div>
             </div>
 
