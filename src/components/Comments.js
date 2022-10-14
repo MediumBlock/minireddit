@@ -19,7 +19,13 @@ export default function Comments({ id, subreddit }) {
 
     console.log(testCommentData)
 
-    const commentsLog = testCommentData.map(comment => {
+
+    const commentsLog = testCommentData.filter(item => {
+        if(item.kind === "more") {
+            return false;
+        }
+        return true;
+    }).map(comment => {
         const commentId = comment.data.link_id.slice(3);
         if (commentId === id) {
             return (
@@ -32,9 +38,11 @@ export default function Comments({ id, subreddit }) {
         return
     })
 
+
+
     return (
         <div className="comments--section">
-            {commentsLog}
+            { testCommentData && commentsLog}
         </div>
     )
 }

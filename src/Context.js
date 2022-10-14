@@ -26,26 +26,19 @@ function ContextProvider({ children }) {
 
     
 
-    useEffect(() => {
-        fetch('https://www.reddit.com/r/worldnews/comments/y1ppwm.json')
-            .then(res => res.json())
-            .then(item => setCommentData(item[1].data.children))
-            .catch((err) => {
-                console.log('error error')
-            });
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://www.reddit.com/r/worldnews/comments/y1ppwm.json')
+    //         .then(res => res.json())
+    //         .then(item => setCommentData(item[1].data.children))
+    //         .catch((err) => {
+    //             console.log('error error')
+    //         });
+    // }, [])
 
     console.log('apidata', apiData)
-    console.log('commentdata', commentData)
+    // console.log('commentdata', commentData)
 
 
-    useEffect(() => {
-        setMockApiData(mockData)
-    }, [])
-
-    useEffect(() => {
-        setMockApiCommentData(mockCommentData)
-    }, [])
 
     function handleSearchChange(event) {
         const { value } = event.target
