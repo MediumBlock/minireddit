@@ -11,7 +11,6 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
 
     const [checkComments, setCheckComments] = useState(false)
     
-    const { mockApiData, mockApiCommentData } = useContext(Context)
 
 
     function toggleVote(vote) {

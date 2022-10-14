@@ -5,11 +5,11 @@ import { Context } from "../Context"
 
 export default function TileList() {
 
-    const { apiData, mockApiData } = useContext(Context)
+    const { apiData } = useContext(Context)
 
     // const tileItemElements = apiData.map(item => ())
 
-    const tileItemElements = mockApiData.map(item => (
+    const tileItemElements = apiData.map(item => (
         <Tile
             key={item.data.id}
             img={item.data.url}

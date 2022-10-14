@@ -4,9 +4,9 @@ import Tile from './Tile'
 
 export default function Search() {
 
-    const { apiData, mockApiData, submitData} = useContext(Context)
+    const { apiData, submitData} = useContext(Context)
 
-    const filterElements = mockApiData.filter(item => {
+    const filterElements = apiData.filter(item => {
         return item.data.title.includes(submitData)
     })
 

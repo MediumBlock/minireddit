@@ -9,10 +9,10 @@ function ContextProvider({ children }) {
     const [commentData, setCommentData] = useState([])
     const [mockApiData, setMockApiData] = useState([])
     const [mockApiCommentData, setMockApiCommentData] = useState([])
-    const [hasSearchTerm, setHasSeartchTerm] = useState(true)
+    const [hasSearchTerm, setHasSeartchTerm] = useState(false)
     const [searchData, setSearchData] = useState("")
     const [submitData, setSubmitData] = useState("")
-    const [subReddit, setSubReddit] = useState("home")
+    const [subReddit, setSubReddit] = useState("Home")
 
 
     useEffect(() => {

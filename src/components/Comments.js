@@ -3,10 +3,9 @@ import { Context } from "../Context";
 
 
 export default function Comments({ id, subreddit }) {
-    const { mockApiData, mockApiCommentData } = useContext(Context)
-    const {testCommentData, setTestCommentData} = useState("")
+    const [testCommentData, setTestCommentData] = useState([])
 
-    // console.log(mockApiCommentData)
+    console.log(id, subreddit)
 
     useEffect(() => {
         fetch(`https://www.reddit.com/r/${subreddit}/comments/${id}.json`)
@@ -17,9 +16,10 @@ export default function Comments({ id, subreddit }) {
             });
     }, [])
 
+
     console.log(testCommentData)
 
-    const commentsLog = mockApiCommentData.map(comment => {
+    const commentsLog = testCommentData.map(comment => {
         const commentId = comment.data.link_id.slice(3);
         if (commentId === id) {
             return (
