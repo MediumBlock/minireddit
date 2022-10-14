@@ -19,6 +19,7 @@ export default function TileList() {
             ups={item.data.ups}
             author={item.data.author}
             date={item.data.created}
+            subreddit={item.data.subreddit}
 
         />
     ))

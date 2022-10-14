@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../Context"
 import Comments from "./Comments";
 
-export default function Tile({ img, title, id, comments, ups, author, date }) {
+export default function Tile({ img, title, id, comments, ups, author, date, subreddit }) {
 
     const [isVoted, setIsVoted] = useState({
         up: false,
@@ -55,6 +55,9 @@ export default function Tile({ img, title, id, comments, ups, author, date }) {
         return dateObject.toLocaleString()
     }
 
+    
+
+
 
     return (
         <div className="tile">
@@ -84,7 +87,7 @@ export default function Tile({ img, title, id, comments, ups, author, date }) {
                             <p>{comments}</p>
                         </div>
                     </div>
-                    {checkComments ? <Comments id={id} /> : "" }
+                    {checkComments ? <Comments id={id} subreddit={subreddit} /> : "" }
                 </div>
             </div>
 

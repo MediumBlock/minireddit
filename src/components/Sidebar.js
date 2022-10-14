@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../Context";
 
 export default function SideBar() {
 
-
-    function handleChange(event) {
-        console.log(event.target.value)
-    }
+    const {handleSubRedditChange} = useContext(Context);
 
     return (
         <div className="sidebar">
             <button value="worldnews"
-                onClick={handleChange}
+                onClick={handleSubRedditChange}
             >
                 worldnews
             </button>
             <button value="funny"
-                onClick={handleChange}
+                onClick={handleSubRedditChange}
             >
                 funny
             </button >

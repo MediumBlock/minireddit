@@ -20,6 +20,7 @@ export default function Search() {
             ups={item.data.ups}
             author={item.data.author}
             date={item.data.created}
+            subreddit={item.data.subreddit}
 
         />
     ))

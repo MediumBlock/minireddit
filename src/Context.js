@@ -12,16 +12,19 @@ function ContextProvider({ children }) {
     const [hasSearchTerm, setHasSeartchTerm] = useState(true)
     const [searchData, setSearchData] = useState("")
     const [submitData, setSubmitData] = useState("")
+    const [subReddit, setSubReddit] = useState("home")
 
 
     useEffect(() => {
-        fetch('https://www.reddit.com/r/worldnews/hot.json')
+        fetch(`https://www.reddit.com/r/${subReddit}/hot.json`)
             .then(res => res.json())
             .then(item => setApiData(item.data.children))
             .catch((err) => {
                 console.log('error error')
             });
-    }, [])
+    }, [subReddit])
+
+    
 
     useEffect(() => {
         fetch('https://www.reddit.com/r/worldnews/comments/y1ppwm.json')
@@ -55,7 +58,12 @@ function ContextProvider({ children }) {
 
     }
 
-    console.log(submitData)
+    function handleSubRedditChange(event) {
+        setSubReddit(event.target.value)
+    }
+
+    console.log('subreddit', subReddit)
+
     return (
         <Context.Provider value={{
             apiData,
@@ -66,7 +74,8 @@ function ContextProvider({ children }) {
             handleSearchChange,
             searchData,
             handleSearchSubmit,
-            submitData
+            submitData,
+            handleSubRedditChange
         }} >
             {children}
         </Context.Provider>
