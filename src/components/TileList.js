@@ -12,7 +12,8 @@ export default function TileList() {
     const tileItemElements = apiData.map(item => (
         <Tile
             key={item.data.id}
-            img={item.data.url}
+            img={item.data.thumbnail}
+            fulldata={item.data|| "" }
             title={item.data.title}
             id={item.data.id}
             comments={item.data.num_comments}

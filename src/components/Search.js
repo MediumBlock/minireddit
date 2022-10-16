@@ -1,10 +1,10 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import { Context } from '../Context'
 import Tile from './Tile'
 
 export default function Search() {
 
-    const { apiData, submitData} = useContext(Context)
+    const { apiData, submitData } = useContext(Context)
 
     const filterElements = apiData.filter(item => {
         return item.data.title.includes(submitData)
@@ -14,6 +14,7 @@ export default function Search() {
         <Tile
             key={item.data.id}
             img={item.data.url}
+            media={item.data.media_metaData}
             title={item.data.title}
             id={item.data.id}
             comments={item.data.num_comments}
