@@ -1,6 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../Context"
 import Comments from "./Comments";
+import ReactLoading from 'react-loading';
+
+
 
 export default function Tile({ img, title, id, comments, ups, author, date, subreddit, fulldata }) {
 
@@ -122,6 +125,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
                         </div>
                     </div>
                     {checkComments ? <Comments id={id} subreddit={subreddit} /> : ""}
+                    <ReactLoading type={"spokes"} color={"#B4D455"} height={40} width={40} />
                 </div>
             </div>
 

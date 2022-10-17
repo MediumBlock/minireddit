@@ -7,7 +7,7 @@ export default function Search() {
     const { apiData, submitData } = useContext(Context)
 
     const filterElements = apiData.filter(item => {
-        return item.data.title.includes(submitData)
+        return item.data.title.toLowerCase().includes(submitData.toLowerCase())
     })
 
     const tileSearchElements = filterElements.map(item => (
