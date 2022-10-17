@@ -252,3 +252,11 @@ iframe {
     height: 800px;
 
 }
+
+.loader {
+    margin: 0 auto;
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
