@@ -13,8 +13,8 @@ export default function Search() {
     const tileSearchElements = filterElements.map(item => (
         <Tile
             key={item.data.id}
-            img={item.data.url}
-            media={item.data.media_metaData}
+            img={item.data.thumbnail}
+            fulldata={item.data || ""}
             title={item.data.title}
             id={item.data.id}
             comments={item.data.num_comments}
@@ -23,16 +23,16 @@ export default function Search() {
             date={item.data.created}
             subreddit={item.data.subreddit}
 
-        />
+/>
     ))
 
 
-    return (
-        <>
-            <div className="tilelist">
-                {tileSearchElements}
-            </div>
-        </>
+return (
+    <>
+        <div className="tilelist">
+            {tileSearchElements}
+        </div>
+    </>
 
-    )
+)
 }

@@ -33,6 +33,11 @@ function ContextProvider({ children }) {
     function handleSearchChange(event) {
         const { value } = event.target
         setSearchData(value)
+        if(searchData) {
+            setHasSeartchTerm(true)
+        } else {
+            setHasSeartchTerm(false)
+        }
     }
 
     function handleSearchSubmit(event) {

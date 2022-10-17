@@ -9,12 +9,6 @@ export default function Main() {
 
     const { apiData, hasSearchTerm } = useContext(Context)
 
-    // console.log(apiData)
-
-    function mapArray() {
-        // return apiData.map(item => item.data.title)
-    }
-
 
 
 
@@ -28,7 +22,6 @@ export default function Main() {
                 }
                 <SideBar />
             </div>
-            {mapArray()}
         </div>
     )
 }
