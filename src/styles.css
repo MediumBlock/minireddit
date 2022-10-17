@@ -41,7 +41,8 @@ body {
     font-size: 20px;
     border-radius: 0;
     -webkit-appearance: none;
-    border: 1px solid transparent;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .header button {
@@ -51,6 +52,8 @@ body {
     border-radius: 0;
     -webkit-appearance: none;
     border: 1px solid transparent;
+    cursor: pointer;
+
 }
 
 .header button img {
@@ -85,12 +88,22 @@ body {
 
 .tile--left {
     margin-top: 20px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    width: 70px;
+
+}
+
+.tile--left .upvote {
+    margin: 0 auto;
+}
+
+.tile--left .downvote {
+    margin: 0 auto;
 }
 
 .tile--left p {
     margin: 0;
-    margin-left: 10px
+    
 }
 
 .upvote--counter {
@@ -203,14 +216,30 @@ p {
 }
 
 .sidebar:hover {
-    box-shadow: 0 0 3px #515151;
+    /* box-shadow: 0 0 3px #515151; */
 }
 
 .sidebar button {
     width: 100%;
     height: 40px;
     display: block;
+    background-color: var(--foreground);
+    border: 0.2px solid black;
+    border-radius: 5px;
+
 }
+
+.sidebar button:hover {
+    box-shadow: 0 0 3px #515151;
+
+}
+
+.sidebar button:active {
+    box-shadow: 0 1px #666;
+    transform: translateY(1px);
+  }
+
+
 
 .content {
     display: flex;

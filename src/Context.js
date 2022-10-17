@@ -9,10 +9,10 @@ function ContextProvider({ children }) {
     const [commentData, setCommentData] = useState([])
     const [mockApiData, setMockApiData] = useState([])
     const [mockApiCommentData, setMockApiCommentData] = useState([])
-    const [hasSearchTerm, setHasSeartchTerm] = useState(false)
+    const [hasSearchTerm, setHasSearchTerm] = useState(false)
     const [searchData, setSearchData] = useState("")
     const [submitData, setSubmitData] = useState("")
-    const [subReddit, setSubReddit] = useState("Home")
+    const [subReddit, setSubReddit] = useState("pics")
 
 
     useEffect(() => {
@@ -34,9 +34,9 @@ function ContextProvider({ children }) {
         const { value } = event.target
         setSearchData(value)
         if(searchData) {
-            setHasSeartchTerm(true)
+            setHasSearchTerm(true)
         } else {
-            setHasSeartchTerm(false)
+            setHasSearchTerm(false)
         }
     }
 
@@ -58,7 +58,7 @@ function ContextProvider({ children }) {
             mockApiData,
             mockApiCommentData,
             hasSearchTerm,
-            setHasSeartchTerm,
+            setHasSearchTerm,
             handleSearchChange,
             searchData,
             handleSearchSubmit,
