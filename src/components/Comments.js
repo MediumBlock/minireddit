@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../Context";
+import ReactLoading from 'react-loading';
 
 
 export default function Comments({ id, subreddit }) {
     const [testCommentData, setTestCommentData] = useState([])
 
-    console.log(id, subreddit)
 
     useEffect(() => {
         fetch(`https://www.reddit.com/r/${subreddit}/comments/${id}.json`)
@@ -17,11 +17,10 @@ export default function Comments({ id, subreddit }) {
     }, [])
 
 
-    console.log(testCommentData)
 
 
     const commentsLog = testCommentData.filter(item => {
-        if(item.kind === "more") {
+        if (item.kind === "more") {
             return false;
         }
         return true;
@@ -42,7 +41,7 @@ export default function Comments({ id, subreddit }) {
 
     return (
         <div className="comments--section">
-            { testCommentData && commentsLog}
+            {commentsLog}
         </div>
     )
 }

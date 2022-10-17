@@ -13,27 +13,32 @@ function ContextProvider({ children }) {
     const [searchData, setSearchData] = useState("")
     const [submitData, setSubmitData] = useState("")
     const [subReddit, setSubReddit] = useState("pics")
+    const [isApiLoading, setIsApiLoading] = useState(true)
 
 
     useEffect(() => {
+        setIsApiLoading(true)
         fetch(`https://www.reddit.com/r/${subReddit}/hot.json`)
             .then(res => res.json())
-            .then(item => setApiData(item.data.children))
+            .then(item => {
+                setApiData(item.data.children)
+                setIsApiLoading(false)
+            })
             .catch((err) => {
                 console.log('error error')
             });
     }, [subReddit])
 
-    
+
 
     console.log('apidata', apiData)
-
+    console.log('api loading?', isApiLoading)
 
 
     function handleSearchChange(event) {
         const { value } = event.target
         setSearchData(value)
-        if(searchData) {
+        if (searchData) {
             setHasSearchTerm(true)
         } else {
             setHasSearchTerm(false)
@@ -63,7 +68,8 @@ function ContextProvider({ children }) {
             searchData,
             handleSearchSubmit,
             submitData,
-            handleSubRedditChange
+            handleSubRedditChange,
+            isApiLoading
         }} >
             {children}
         </Context.Provider>

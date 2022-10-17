@@ -4,7 +4,6 @@ import Comments from "./Comments";
 import ReactLoading from 'react-loading';
 
 
-
 export default function Tile({ img, title, id, comments, ups, author, date, subreddit, fulldata }) {
 
     const [isVoted, setIsVoted] = useState({
@@ -14,12 +13,11 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
 
     const [checkComments, setCheckComments] = useState(false)
     const [postImage, setPostImage] = useState({ media: "", img: "", redditVid: "", youtubeVid: "" })
-    const { subReddit } = useContext(Context)
+    const { subReddit, isApiLoading } = useContext(Context)
 
 
 
     useEffect(() => {
-
         if (fulldata.media_metadata) {
             let media = fulldata.media_metadata
             let firstKey = Object.values(media)[0].id
@@ -27,7 +25,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
         } else if (fulldata.url[8] === 'i') {
             setPostImage({ img: fulldata.url })
         } else if (fulldata.media) {
-            if(fulldata.media.type === "liveupdate") {
+            if (fulldata.media.type === "liveupdate") {
                 return
             }
             if (fulldata.media.type === "youtube.com") {
@@ -86,49 +84,51 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
 
 
 
-
     return (
         <div className="tile">
-            <div className="tile--divider">
-                <div className="tile--left">
-                    <img src={isVoted.up ? require("../resources/uparrowfilled.png") : require("../resources/uparrow.png")}
-                        className="upvote"
-                        onClick={() => toggleVote("upvote")}
-                    />
-                    <p className="upvote--counter">{ups}</p>
-                    <img src={isVoted.down ? require("../resources/uparrowfilled.png") : require("../resources/uparrow.png")}
-                        className="downvote"
-                        onClick={() => toggleVote("downvote")}
-                    />
-                </div>
-                <div className="tile--right">
-                    <h3>{title}</h3>
-                    {postImage.media && <img src={`https://i.redd.it/${postImage.media}.jpg`} />}
-                    {postImage.img && <img src={postImage.img} />}
-                    {postImage.redditVid && <iframe
-                        src={postImage.redditVid}
-                        frameborder="0"
-                        allowfullscreen
-                        title="video"
-
-                    />}
-                    {postImage.youtubeVid && <img src={postImage.youtubeVid} />}
-                    <hr />
-                    <div className="tile--footer">
-                        <p>{author}</p>
-                        <p>{convertTime()}</p>
-                        <div className="tile--footer--comments">
-                            <img src={require("../resources/comment.png")}
-                                onClick={toggleComments}
-                            />
-                            <p>{comments}</p>
-                        </div>
+            {isApiLoading
+                ?
+                <ReactLoading type={"spokes"} color={"#f3f3f3"} height={'40'} width={'40'} className="loader" />
+                :
+                <div className="tile--divider">
+                    <div className="tile--left">
+                        <img src={isVoted.up ? require("../resources/uparrowfilled.png") : require("../resources/uparrow.png")}
+                            className="upvote"
+                            onClick={() => toggleVote("upvote")}
+                        />
+                        <p className="upvote--counter">{ups}</p>
+                        <img src={isVoted.down ? require("../resources/uparrowfilled.png") : require("../resources/uparrow.png")}
+                            className="downvote"
+                            onClick={() => toggleVote("downvote")}
+                        />
                     </div>
-                    {checkComments ? <Comments id={id} subreddit={subreddit} /> : ""}
-                    <ReactLoading type={"spokes"} color={"#B4D455"} height={40} width={40} />
-                </div>
-            </div>
+                    <div className="tile--right">
+                        <h3>{title}</h3>
+                        {postImage.media && <img src={`https://i.redd.it/${postImage.media}.jpg`} />}
+                        {postImage.img && <img src={postImage.img} />}
+                        {postImage.redditVid && <iframe
+                            src={postImage.redditVid}
+                            frameborder="0"
+                            allowfullscreen
+                            title="video"
 
+                        />}
+                        {postImage.youtubeVid && <img src={postImage.youtubeVid} />}
+                        <hr />
+                        <div className="tile--footer">
+                            <p>{author}</p>
+                            <p>{convertTime()}</p>
+                            <div className="tile--footer--comments">
+                                <img src={require("../resources/comment.png")}
+                                    onClick={toggleComments}
+                                />
+                                <p>{comments}</p>
+                            </div>
+                        </div>
+                        {checkComments && <Comments id={id} subreddit={subreddit} />}
+                    </div>
+                </div>
+            }
         </div>
     )
 }
