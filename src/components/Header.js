@@ -5,7 +5,7 @@ import { Context } from "../Context";
 
 export default function Header() {
 
-    const { handleSearchChange, searchData, handleSearchSubmit } = useContext(Context);
+    const { handleSearchChange, searchData, handleSearchSubmit, width, breakpoint } = useContext(Context);
 
 
     return (
@@ -15,7 +15,7 @@ export default function Header() {
             <form onSubmit={handleSearchSubmit}
                 className="search--form">
                 <input type="text"
-                    className="search"
+                    className={width > breakpoint ? "search" : "search search--responsive"}
                     placeholder="Search"
                     onChange={handleSearchChange}
                     value={searchData}

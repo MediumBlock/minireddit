@@ -8,22 +8,21 @@ import { Context } from "../Context"
 
 export default function Main() {
 
-    const { apiData, hasSearchTerm } = useContext(Context)
-    const [width, setWidth] = useState(window.innerWidth)
-    const breakpoint = 760;
+    const { apiData, hasSearchTerm, width, breakpoint } = useContext(Context)
+
 
 
 
     return (
         <div>
             <Header />
-            <Dropdown />
+            {width < breakpoint && <Dropdown />}
             <div className="content main">
                 {hasSearchTerm ?
                     <Search /> :
                     <TileList />
                 }
-                <SideBar />
+                {width > breakpoint && <SideBar />}
             </div>
         </div>
     )

@@ -13,7 +13,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
 
     const [checkComments, setCheckComments] = useState(false)
     const [postImage, setPostImage] = useState({ media: "", img: "", redditVid: "", youtubeVid: "" })
-    const { subReddit, isApiLoading } = useContext(Context)
+    const { subReddit, isApiLoading, width, breakpoint } = useContext(Context)
 
 
 

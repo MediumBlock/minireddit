@@ -14,6 +14,17 @@ function ContextProvider({ children }) {
     const [submitData, setSubmitData] = useState("")
     const [subReddit, setSubReddit] = useState("pics")
     const [isApiLoading, setIsApiLoading] = useState(true)
+    const [width, setWidth] = useState(window.innerWidth)
+    
+    const breakpoint = 760;
+
+
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener("resize", handleWindowResize);
+    
+        return () => window.removeEventListener("resize", handleWindowResize);
+      }, []);
 
 
     useEffect(() => {
@@ -55,7 +66,6 @@ function ContextProvider({ children }) {
         setSubReddit(event.target.value)
     }
 
-    console.log('subreddit', subReddit)
 
     return (
         <Context.Provider value={{
@@ -69,7 +79,9 @@ function ContextProvider({ children }) {
             handleSearchSubmit,
             submitData,
             handleSubRedditChange,
-            isApiLoading
+            isApiLoading,
+            width,
+            breakpoint
         }} >
             {children}
         </Context.Provider>

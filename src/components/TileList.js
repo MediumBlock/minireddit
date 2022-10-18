@@ -5,9 +5,8 @@ import { Context } from "../Context"
 
 export default function TileList() {
 
-    const { apiData } = useContext(Context)
+    const { apiData, width, breakpoint } = useContext(Context)
 
-    // const tileItemElements = apiData.map(item => ())
 
     const tileItemElements = apiData.map(item => (
         <Tile
@@ -28,9 +27,8 @@ export default function TileList() {
 
     return (
         <>
-            <div className="tilelist">
+            <div className={width > breakpoint ? "tilelist" : "tilelist tilelist--responsive" }>
                 {tileItemElements}
-
             </div>
         </>
 
