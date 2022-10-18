@@ -7,7 +7,7 @@
 
 html,
 body {
-    font-family: 'Oswald', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -116,6 +116,12 @@ body {
 
 .tile--right h3 {
     text-align: center;
+}
+
+.tile--right .selftext {
+    line-height: 1.5em;
+    width: 97.5%;
+    margin: 0 auto;
 }
 
 .tile img {

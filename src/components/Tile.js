@@ -30,6 +30,8 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
             }
             if (fulldata.media.type === "youtube.com") {
                 setPostImage({ youtubeVid: fulldata.media.oembed.thumbnail_url })
+            } else if (fulldata.media.type === "gfycat.com") {
+                setPostImage({ img: fulldata.media.oembed.thumbail_url })
             } else if (fulldata.media.reddit_video.fallback_url) {
                 setPostImage({ redditVid: fulldata.media.reddit_video.fallback_url })
 
@@ -104,6 +106,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
                     </div>
                     <div className="tile--right">
                         <h3>{title}</h3>
+                        <p className="selftext">{fulldata.selftext}</p>
                         {postImage.media && <img src={`https://i.redd.it/${postImage.media}.jpg`} />}
                         {postImage.img && <img src={postImage.img} />}
                         {postImage.redditVid && <iframe
