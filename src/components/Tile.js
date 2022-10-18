@@ -13,6 +13,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
 
     const [checkComments, setCheckComments] = useState(false)
     const [postImage, setPostImage] = useState({ media: "", img: "", redditVid: "", youtubeVid: "" })
+    const [postTime, setPostTime] = useState({ days: "", hours: "" })
     const { subReddit, isApiLoading, width, breakpoint } = useContext(Context)
 
 
@@ -76,14 +77,21 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
     }
 
 
-    function convertTime() {
+
+    useEffect(() => {
         const unixTimestamp = date
         const milliseconds = date * 1000
-        const dateObject = new Date(milliseconds)
+        const postTime = new Date(milliseconds)
+        const timeNow = new Date()
+        const timeDiff = timeNow.getTime() - postTime.getTime();
+        const difference_in_days = timeDiff / (1000 * 3600 * 24)
+        if (difference_in_days > 2) {
+            setPostTime({ days: Math.ceil(difference_in_days) })
+        } else if (difference_in_days < 2) {
+            setPostTime({ hours: Math.ceil(difference_in_days * 24) })
+        }
 
-        return dateObject.toLocaleString()
-    }
-
+    }, [])
 
 
     return (
@@ -121,7 +129,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
                         {checkComments && <Comments id={id} subreddit={subreddit} />}
                         <div className="tile--footer">
                             <p>{author}</p>
-                            <p>{convertTime()}</p>
+                            <p>{postTime.days ? postTime.days + " days ago" : postTime.hours + " hours ago"}</p>
                             <div className="tile--footer--comments">
                                 <img src={require("../resources/comment.png")}
                                     onClick={toggleComments}
