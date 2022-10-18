@@ -131,6 +131,7 @@ hr {
     position: relative;
     top: 8px;
     width: 60%;
+    margin-bottom: 15px;
 }
 
 .tile--footer {

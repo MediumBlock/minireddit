@@ -115,6 +115,7 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
                         />}
                         {postImage.youtubeVid && <img src={postImage.youtubeVid} />}
                         <hr />
+                        {checkComments && <Comments id={id} subreddit={subreddit} />}
                         <div className="tile--footer">
                             <p>{author}</p>
                             <p>{convertTime()}</p>
@@ -125,7 +126,6 @@ export default function Tile({ img, title, id, comments, ups, author, date, subr
                                 <p>{comments}</p>
                             </div>
                         </div>
-                        {checkComments && <Comments id={id} subreddit={subreddit} />}
                     </div>
                 </div>
             }

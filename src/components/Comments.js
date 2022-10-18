@@ -5,12 +5,18 @@ import ReactLoading from 'react-loading';
 
 export default function Comments({ id, subreddit }) {
     const [testCommentData, setTestCommentData] = useState([])
+    const [isLoading, setIsLoading] = useState([true])
 
 
     useEffect(() => {
+        setIsLoading(true)
         fetch(`https://www.reddit.com/r/${subreddit}/comments/${id}.json`)
             .then(res => res.json())
-            .then(item => setTestCommentData(item[1].data.children))
+            .then(item => {
+                setIsLoading(false)
+                setTestCommentData(item[1].data.children)
+            })
+
             .catch((err) => {
                 console.log('error error')
             });
@@ -41,7 +47,10 @@ export default function Comments({ id, subreddit }) {
 
     return (
         <div className="comments--section">
-            {commentsLog}
+            {isLoading
+                ? <ReactLoading type={"spokes"} color={"#f3f3f3"} height={'40'} width={'40'} className="loader" />
+                : commentsLog
+            }
         </div>
     )
 }
