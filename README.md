@@ -4,7 +4,7 @@ A **`Reddit`** Clone using `ReactJS`
 
 ## [Live Preview](https://mediumblock.github.io/tenzies/)
 
-![This is an image](https://mediumblock.github.io/reactportfolio/static/media/tenzies-ss.b495633bc2587f037461.webp)
+![This is an image](https://mediumblock.github.io/reactportfolio/static/media/minireddit-ss.32e4c7a1b80fb98ab983.webp)
 
 ## About ℹ️
 
