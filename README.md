@@ -1,4 +1,4 @@
-# MiniReddit-ReactJS 🎲
+# MiniReddit-ReactJS 🤖
 
 A **`Reddit`** Clone using `ReactJS`
 
